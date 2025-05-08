@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>karma</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jsplumb.min.js"></script>
+    <script src="js/jquery.ztree.all.min.js"></script>
+    <link href="css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <link href="css/karma.css" rel="stylesheet">
+    <link href="css/codemirror.min.css" rel="stylesheet">
+    <link href="css/monokai.css" rel="stylesheet">
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/sql.min.js"></script>
+    <script src="js/javascript.js"></script>
+    <script src="js/sql-formatter.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body bgcolor="#1D1D1D">
+<div class="main_head">
+    <div class="main_logo1"></div>
+    <div class="main_logo"></div>
+    <div class="main_menu_ds">&nbsp;&nbsp;数据源</div>
+    <div class="main_menu_help">&nbsp;帮助</div>
+    <div class="main_user"></div>
+</div>
+<div class="main_tool">
+    <input type="hidden" id="flow_id">
+    <div class="main_tool_edit_title" title="编辑标题"></div>
+    <div class="main_tool_title">新建分析流</div>
+    <input type="text" class="main_tool_title_input">
+
+    <div class="main_tool_close" title="关闭"></div>
+    <select class="main_group_select"></select>
+    <div class="main_tool_undo" title="撤销"></div>
+    <div class="main_tool_graph" title="图表"></div>
+    <div class="main_tool_code" title="代码"></div>
+    <div class="main_tool_var" title="全局变量"></div>
+    <div class="main_tool_save" title="保存"></div>
+    <div class="main_tool_stop" title="停止"></div>
+    <div class="main_tool_run" title="执行"></div>
+</div>
+<div class="main_left_tool">
+    <div class="main_left_tool_select selected_tool" title="选择">
+    </div>
+    <div class="main_left_tool_split">
+    </div>
+    <div class="main_left_tool_user" title="用户">
+    </div>
+    <div class="main_left_tool_fellow" title="销售">
+    </div>
+</div>
+
+<div class="main_canvas">
+    <div class="main_chart_head_close">
+    </div>
+    <div class="main_canvas_inner">
+        <div class="main_canvas_inner_scroll">
+        </div>
+    </div>
+</div>
+
+<div class="main_chart_inner">
+</div>
+
+
+<div class="main_conf">
+    <div class="main_conf_head">当前节点</div>
+    <div class="main_conf_base">
+        <div class="main_conf_base_title">
+            基础信息
+        </div>
+        <div class="main_conf_base_type">
+            节点类型：
+        </div>
+        <div class="main_conf_base_name">
+            节点名称：
+        </div>
+        <div class="main_conf_base_desc">
+            节点描述：
+        </div>
+        <div class="main_conf_base_ds">
+            数据源：
+        </div>
+        <div class="main_conf_base_rela">
+            和上游关系：
+        </div>
+        <div class="main_conf_base_rela_radio main_conf_base_rela_radio_checked" data="intersection">交集</div>
+        <div class="main_conf_base_rela_radio main_conf_base_rela_union" style="left:164px;" data="difference">差集</div>
+
+        <input type="text" class="main_conf_base_type_input" readonly>
+        <input type="text" class="main_conf_base_type_name">
+        <input type="text" class="main_conf_base_type_ds" readonly>
+        <div class="main_conf_base_type_ds_open" title="选择数据源"></div>
+        <textarea  class="main_conf_base_type_desc"></textarea>
+    </div>
+    <div class="main_conf_param">
+        <div class="main_conf_param_title">
+            SQL参数配置
+        </div>
+        <div  class="main_conf_param_outer">
+        </div>
+    </div>
+    <div class="main_conf_aggr">
+        <div class="main_conf_aggr_title">
+            聚合参数配置
+        </div>
+        <div  class="main_conf_aggr_outer"></div>
+    </div>
+
+</div>
+
+<div class="main_console">
+    <div class="main_console_head">
+        <div class="main_console_head_txt">
+            控制台
+        </div>
+        <div class="main_console_tool_del" style="margin-left:60px;">
+        </div>
+    </div>
+    <div class="main_console_area">
+    </div>
+</div>
+
+<div class="main_tree">
+    <div class="main_tree_head">
+        <div class="main_tree_head_txt">目录树</div>
+        <input type="text" class="tree_search">
+    </div>
+    <div class="main_tree_tool">
+        <div class="main_tree_tool_add" title="新建目录">
+        </div>
+        <div class="main_tree_tool_del" title="删除分析流">
+        </div>
+    </div>
+    <div class="main_tree_area">
+        <div id="main_tree_area_inner" class="main_tree_area_inner ztree">
+        </div>
+    </div>
+</div>
+
+<div class="main_menu">
+    <div class="main_menu_item_del">
+        删除节点  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command+backspace
+    </div>
+    <div class="main_menu_item_copy">
+        复制节点
+    </div>
+    <div class="main_menu_item_sql">
+        节点SQL预览
+    </div>
+    <div class="main_menu_item_run">
+        执行当前节点
+    </div>
+</div>
+
+<div class="main_modal"></div>
+
+<div class="main_banner"></div>
+
+<div class="main_start">开始</div>
+
+<div class="main_ds">
+    <div class="main_ds_head">
+        <div class="main_ds_head_title">
+            数据源
+        </div>
+        <div class="main_ds_head_close"></div>
+    </div>
+    <div class="main_ds_tool">
+        <input type="text" class="ds_search" placeholder="输入数据源名称或编码">
+        <div class="main_ds_tool_add" style="float:right;" title="新增数据源"></div>
+    </div>
+
+    <div class="main_ds_table_head">
+        <div class="main_ds_table_head_col" style="width:150px;">
+            编码
+        </div>
+        <div class="main_ds_table_head_col" style="width:150px;">
+            名称
+        </div>
+        <div class="main_ds_table_head_col">
+            类型
+        </div>
+        <div class="main_ds_table_head_col">
+            创建人
+        </div>
+        <div class="main_ds_table_head_col" style="width:150px;">
+            创建时间
+        </div>
+        <div class="main_ds_table_head_col">
+            操作
+        </div>
+    </div>
+
+    <div class="main_ds_table_body">
+    </div>
+
+</div>
+
+<div class="main_ds_edit_panel">
+    <div class="main_ds_edit_head">
+        <div class="main_ds_edit_head_title">
+            新增数据源
+        </div>
+        <div class="main_ds_edit_head_close"></div>
+    </div>
+    <div class="main_ds_edit_tool">
+        <input type="hidden" class="main_ds_edit_id">
+        <div class="main_ds_edit_code_txt" style="top:10px;">编码：</div>
+        <input type="text" class="main_ds_edit_code">
+        <div class="main_ds_edit_name_txt" style="top:10px;left:260px;">名称：</div>
+        <input type="text" class="main_ds_edit_name" style="left:310px;">
+        <div class="main_ds_edit_type_txt" style="top:40px;">类型：</div>
+        <select class="main_ds_select"><option value="user">用户</option><option value="fellow">销售</option></select>
+        <div class="main_ds_edit_sql_txt" style="top:70px;">SQL：</div>
+        <div class="main_ds_edit_sql"></div>
+        <div class="main_ds_edit_params_txt" style="top:250px;">参数：</div>
+        <div class="main_ds_edit_cols_txt" style="top:454px;">字段：</div>
+
+        <div class="main_ds_edit_params_head">
+            <div class="main_ds_table_head_col" style="width:120px;">
+                变量
+            </div>
+            <div class="main_ds_table_head_col" style="width:120px;">
+                变量名称
+            </div>
+            <div class="main_ds_table_head_col" style="width:120px;">
+                变量类型
+            </div>
+            <div class="main_ds_table_head_col" style="width:180px;">
+                变量格式
+            </div>
+        </div>
+
+        <div class="main_ds_edit_cols_head" style="top:448px;">
+            <div class="main_ds_table_head_col" style="width:120px;">
+                字段
+            </div>
+            <div class="main_ds_table_head_col" style="width:120px;">
+                字段名称
+            </div>
+            <div class="main_ds_table_head_col" style="width:120px;">
+                字段类型
+            </div>
+            <div class="main_ds_table_head_col" style="width:180px;">
+                字段格式
+            </div>
+        </div>
+        <div class="main_ds_edit_params_body"></div>
+        <div class="main_ds_edit_cols_body" style="top:480px;"></div>
+
+        <div class="main_submit">保存</div>
+
+    </div>
+</div>
+
+<div class="add_dir_name">
+    <div class="tree_add_close" title="关闭"></div>
+    <input type="text" class="tree_add" placeholder="输入目录名称">
+</div>
+
+<div class="main_code">
+    <div class="main_code_head">
+        <div class="main_code_head_title">
+            配置代码
+        </div>
+        <div class="main_code_head_close"></div>
+    </div>
+    <div class="main_conf_base_code" style="margin-left:14px;margin-top:6px;"></div>
+    <div class="main_submit">保存</div>
+</div>
+
+<div class="main_code_sql">
+    <div class="main_code_sql_head">
+        <div class="main_code_sql_head_title">
+            当前节点SQL
+        </div>
+        <div class="main_code_sql_head_close"></div>
+    </div>
+    <div class="main_conf_base_code_sql" style="margin-left:14px;margin-top:6px;"></div>
+</div>
+
+<div class="main_var">
+    <div class="main_var_head">
+        <div class="main_var_head_title">
+            全局变量
+        </div>
+        <div class="main_var_head_close"></div>
+    </div>
+    <div class="main_var_tool">
+        <div class="main_var_tool_add" style="float:right;" title="新增变量"></div>
+    </div>
+
+    <div class="main_var_table_head">
+        <div class="main_var_table_head_col" style="width:110px;">
+            变量名
+        </div>
+        <div class="main_var_table_head_col" style="width:110px;">
+            变量值
+        </div>
+        <div class="main_var_table_head_col">
+            操作
+        </div>
+    </div>
+
+    <div class="main_var_table_body">
+    </div>
+    <div class="main_submit">保存</div>
+</div>
+
+<div class="alert_tip">
+    <div class="alert_text"></div>
+    <div class="alert_btn">确定</div>  <div class="alert_btn2">取消</div>
+</div>
+
+<div class="copyright_info"></div>
+
+<script src="js/karma.js"></script>
+</body>
+</html>

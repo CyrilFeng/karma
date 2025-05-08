@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.karma.mapper.DataSourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.karma.mapper.entity.DataSourceDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="ds_code" jdbcType="VARCHAR" property="dsCode"/>
+        <result column="ds_name" jdbcType="VARCHAR" property="dsName"/>
+        <result column="ds_type" jdbcType="VARCHAR" property="dsType"/>
+        <result column="ds_sql" jdbcType="VARCHAR" property="dsSql"/>
+        <result column="ds_auths" jdbcType="VARCHAR" property="dsAuths"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="ds_props" jdbcType="LONGVARCHAR" property="dsProps"/>
+        <result column="ds_params" jdbcType="LONGVARCHAR" property="dsParams"/>
+    </resultMap>
+
+</mapper>

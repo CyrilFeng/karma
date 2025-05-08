@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="file.path" value="${user.dir}" />
+	<property name="application.name" value="karma" />
+	<property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${application.name} %-5level [%thread] %logger{36} - %msg%n"/>
+
+	<!-- 控制台输出 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 文件输出：ERROR -->
+	<appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<file>${file.path}/${application.name}/logs/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${file.path}/${application.name}/logs/error-%d{yyyyMMdd}.log.gz</fileNamePattern>
+			<maxHistory>3</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 文件输出：INFO -->
+	<appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<file>${file.path}/${application.name}/logs/info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${file.path}/${application.name}/logs/info-%d{yyyyMMdd}.log.gz</fileNamePattern>
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 文件输出：DEBUG -->
+	<appender name="FILE_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<file>${file.path}/${application.name}/logs/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${file.path}/${application.name}/logs/debug-%d{yyyyMMdd}.log.gz</fileNamePattern>
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- mapper层输出debug日志 -->
+	<logger name="com.github.karma.mapper" level="DEBUG" />
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE_ERROR" />
+		<appender-ref ref="FILE_INFO" />
+		<appender-ref ref="FILE_DEBUG" />
+	</root>
+
+</configuration>

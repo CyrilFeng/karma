@@ -1,0 +1,29 @@
+server:
+  port: 18081
+
+spring:
+  application:
+    name: karma
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url:
+      username: root
+      password:
+      initial-size: 5
+      min-idle: 5
+      max-active: 10
+      max-wait: 30000
+      validation-query: SELECT 1
+      test-on-borrow: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+
+mybatis-plus:
+  mapper-locations: classpath*:mappers/**/*.xml
+
+trino:
+  server:
+  username:
+  password:
+  catalog: hive
