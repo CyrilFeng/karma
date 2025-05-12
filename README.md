@@ -1,5 +1,5 @@
 <div align=center>
-  <img width="340" src="https://github.com/CyrilFeng/karma/blob/main/src/main/resources/static/img/1280X1280.PNG" />
+  <img width="280" src="https://github.com/CyrilFeng/karma/blob/main/src/main/resources/static/img/1280X1280.PNG" />
 </div>
 
 
