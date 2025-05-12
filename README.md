@@ -24,6 +24,8 @@ Karma将对数据的控制权和解释权交还给业务，最后采用何种方
 
 点击左上角，进入数据源配置窗口，点击右上角新增图标
 
+  <img width="800" src="https://github.com/CyrilFeng/karma/blob/main/src/main/resources/static/img/guide1.png" />
+
 这里定义在数据源中配置的内容是一段SQL，这个SQL原则上是单表查询即
 
 ```SQL
