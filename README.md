@@ -20,3 +20,30 @@ Karma填补了现有分析能力缺失的一环，也是业务迫切需要的一
 
 Karma将对数据的控制权和解释权交还给业务，最后采用何种方式得到何种结论，业务说了算。这是我认为Karma最为重要的特点，让业务探索问题并决策。  
  
+## 配置数据源
+
+点击左上角，进入数据源配置窗口，点击右上角新增图标
+
+这里定义在数据源中配置的内容是一段SQL，这个SQL原则上是单表查询即
+
+```SQL
+Select col1,col2,col3... from your_table where ...
+```
+
+这种简单结构。比如：
+
+```SQL
+select
+  task_id,
+  exe_id,
+  brand,
+  user_code uid
+from
+  ods_tmall_prod.task_branch_sale_1h_a
+where
+  datetime = 'latest'
+  and brand = '${brand}'
+  and task_id = ${taskid}
+```
+
+
