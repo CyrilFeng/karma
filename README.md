@@ -41,7 +41,7 @@ select
   brand,
   user_code uid
 from
-  ods_tmall_prod.task_branch_sale_1h_a
+  ods_tmall_prod.task_sale_1h_a
 where
   datetime = 'latest'
   and brand = '${brand}'
