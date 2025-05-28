@@ -1,5 +1,7 @@
 package com.github.karma.service.impl;
 
+import com.google.common.collect.Sets;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -36,15 +39,14 @@ public class DataSourceServiceImpl implements DataSourceService {
         // 更新
         else {
             DataSource ds = dataSourceDao.query(dataSource.getId());
-            // ds的auth字段如果为空，直接把createUser添加进去，不为空做走下面逻辑
-            if (!StringUtils.isBlank(ds.getDsAuths())) {
-                // auth字段不为空，按逗号分隔，如果包含createUser什么也不做，不包含则追加到auth字段的后面
-                if (!Arrays.stream(ds.getDsAuths().split(",")).collect(Collectors.toSet()).contains(dataSource.getCreateUser())) {
-                    dataSource.setDsAuths(ds.getDsAuths() + "," + dataSource.getCreateUser());
-                }
-            } else {
-                dataSource.setDsAuths(dataSource.getCreateUser());
+            Set<String> auths = Sets.newHashSet(dataSource.getCreateUser());
+            if (StringUtils.isNotBlank(ds.getDsAuths())) {
+                auths.addAll(Arrays.asList(ds.getDsAuths().split(",")));
             }
+            if (StringUtils.isNotBlank(dataSource.getDsAuths())) {
+                auths.addAll(Arrays.asList(dataSource.getDsAuths().split(",")));
+            }
+            dataSource.setDsAuths(String.join(",",auths));
             dataSourceDao.update(dataSource);
         }
     }
