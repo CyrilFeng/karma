@@ -91,12 +91,23 @@ Karma会自动感知SQL中的字段，并将它们解析到下面的**字段**�
   </td>
 </tr>
 <tr>
-  <td width=500>
+  <td>
   <img width="500" src="https://github.com/CyrilFeng/karma/blob/main/src/main/resources/static/img/step2.png" />
 
 
   </td>
-  <td width=400>
+  <td>
+
+此时在面板右侧可以编辑节点的信息，最为重要的是【数据源】，单击【数据源】右侧的【...】按钮，在弹出的面板中双击对应的行，即可绑定数据源。
+  </td>
+</tr>
+<tr>
+  <td>
+  <img width="500" src="src/main/resources/static/img/step3.png" />
+
+
+  </td>
+  <td>
 
 此时在面板右侧可以编辑节点的信息，最为重要的是【数据源】，单击【数据源】右侧的【...】按钮，在弹出的面板中双击对应的行，即可绑定数据源。
   </td>
