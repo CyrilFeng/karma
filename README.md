@@ -75,3 +75,20 @@ Karma会自动感知SQL中的字段，并将它们解析到下面的**字段**�
 
 我们还需要在SQL选择一个字段，让它的别名为 **uid（unique id）**，这个字段实际上是类似于外键的作用，比如上面的例子中我们选择user_code为uid，Karma将基于这个uid和其他数据源配置的SQL组装起来。用户id、车辆id、message id等都可以作为uid。  
 上面的例子中，我们配置了一个数据源，这个数据源暴露出2个变量brand和taskid，它们将在后面发挥重要作用。以此类推，我们配置好其他可能用到的数据源，确定对应的uid字段。
+
+### 绘制分析流
+<table>
+<tr>
+  <td width=500>
+  <img width="500" src="https://github.com/CyrilFeng/karma/blob/main/src/main/resources/static/img/step1.png" />
+
+    
+  </td>
+  <td width=400>
+ 
+选中左侧【用户】选项，在黑色面板任意位置按下，即可创建节点。
+
+  </td>
+</tr>
+</table>
+
