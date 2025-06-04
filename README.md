@@ -52,7 +52,7 @@ where
 
 <table>
 <tr>
-  <td>
+  <td width=500>
   <img width="500" src="src/main/resources/static/img/guide2.png" />
 
     
@@ -79,12 +79,12 @@ Karma会自动感知SQL中的字段，并将它们解析到下面的**字段**�
 ### 绘制分析流
 <table>
 <tr>
-  <td>
+  <td width=500>
   <img width="500" src="src/main/resources/static/img/step1.png" />
 
     
   </td>
-  <td>
+  <td width=400>
  
 选中左侧【用户】选项，在黑色面板任意位置按下，即可创建节点。
 
