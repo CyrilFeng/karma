@@ -21,7 +21,7 @@ Karma填补了现有分析能力缺失的一环，和一些传统人群分析系
 Karma将对数据的控制权和解释权交还给业务，最后采用何种方式得到何种结论，业务说了算。这是我认为Karma最为重要的特点，让业务探索问题并决策。  
 
 <div align=center>
-  <img width="700" src="src/main/resources/static/img/intro.png" />
+  <img width="800" src="src/main/resources/static/img/intro.png" />
 </div>
 
 ### 配置数据源
