@@ -168,7 +168,7 @@ command+z 是撤销操作
 </tr>
 <tr>
   <td>
-  <img width="300" src="src/main/resources/static/img/step10.png" />
+  <img width="400" src="src/main/resources/static/img/step10.png" />
 
 </td>
   <td>
@@ -178,9 +178,9 @@ command+z 是撤销操作
 
 <tr>
   <td>
-  <img width="300" src="src/main/resources/static/img/step11.png" />
-  <img width="300" src="src/main/resources/static/img/step12.png" />
-  <img width="300" src="src/main/resources/static/img/step13.png" />
+  <img width="400" src="src/main/resources/static/img/step11.png" />
+  <img width="400" src="src/main/resources/static/img/step12.png" />
+  <img width="400" src="src/main/resources/static/img/step13.png" />
 
 </td>
   <td>
