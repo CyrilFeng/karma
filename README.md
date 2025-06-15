@@ -139,11 +139,31 @@ Karma会自动感知SQL中的字段，并将它们解析到下面的**字段**�
 <tr>
   <td>
   <img width="500" src="src/main/resources/static/img/step6.png" />
-
-
   </td>
   <td>
 配置好数据源和参数后，可以将它们连接上。这次要注意右侧的【与上游关系】配置，多数情况下选择默认的交集即可。如果你需要分析未参与活动用户的情况，需要选择差集选项。
+</td>
+</tr>
+
+<tr>
+  <td>
+  <img width="500" src="src/main/resources/static/img/step7.png" />
+  </td>
+  <td>
+再次点击执行，获取结果，以此类推，你可以分析很多节点关系。
+也可以通过鼠标右键，执行某个特定的节点或者预览这个节点产生的SQL。
+点击连线可以删除连线
+command+z 是撤销操作
+</td>
+</tr>
+<tr>
+  <td>
+  <img width="500" src="src/main/resources/static/img/step8.png" />
+  <img width="500" src="src/main/resources/static/img/step9.png" />
+  
+</td>
+  <td>
+现在按住command，选中多个节点，点击上方的 **图表** 按钮，Karma会根据节点间的拓扑关系，展示漏斗或者其他图表。
 </td>
 </tr>
 </table>
