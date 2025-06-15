@@ -158,8 +158,8 @@ command+z 是撤销操作
 </tr>
 <tr>
   <td>
-  <img width="300" src="src/main/resources/static/img/step8.png" />
-  <img width="300" src="src/main/resources/static/img/step9.png" />
+  <img width="400" src="src/main/resources/static/img/step8.png" />
+  <img width="400" src="src/main/resources/static/img/step9.png" />
   
 </td>
   <td>
@@ -168,12 +168,25 @@ command+z 是撤销操作
 </tr>
 <tr>
   <td>
-  <img width="400" src="src/main/resources/static/img/step10.png" />
+  <img width="300" src="src/main/resources/static/img/step10.png" />
 
 </td>
   <td>
 点击右上角的【代码】按钮，可以编辑这里的代码。将这个代码发给你的朋友，他将获得一个和你一样的流程图，一键复制。test、prod跨环境复制也不再话下。
 </td>
+</tr>
+
+<tr>
+  <td>
+  <img width="300" src="src/main/resources/static/img/step11.png" />
+  <img width="300" src="src/main/resources/static/img/step12.png" />
+  <img width="300" src="src/main/resources/static/img/step13.png" />
+
+</td>
+  <td>
+很多情况下我们的树节点很多，每个节点需要配置相同的变量，比如日期，比较繁琐。
+Karma提供了全局变量的能力，可以声明一个全局变量如date1，并在节点中通过 # 引用它。
+日期类型支持yyyyMMdd-1表示昨天的日期，yyyyMMddHH-1表示上一个小时等。</td>
 </tr>
 </table>
 
