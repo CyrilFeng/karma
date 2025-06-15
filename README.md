@@ -158,12 +158,21 @@ command+z 是撤销操作
 </tr>
 <tr>
   <td>
-  <img width="500" src="src/main/resources/static/img/step8.png" />
-  <img width="500" src="src/main/resources/static/img/step9.png" />
+  <img width="300" src="src/main/resources/static/img/step8.png" />
+  <img width="300" src="src/main/resources/static/img/step9.png" />
   
 </td>
   <td>
-现在按住command，选中多个节点，点击上方的 **图表** 按钮，Karma会根据节点间的拓扑关系，展示漏斗或者其他图表。
+现在按住command，选中多个节点，点击上方的【图表】按钮，Karma会根据节点间的拓扑关系，展示漏斗或者其他图表。
+</td>
+</tr>
+<tr>
+  <td>
+  <img width="400" src="src/main/resources/static/img/step10.png" />
+
+</td>
+  <td>
+点击右上角的【代码】按钮，可以编辑这里的代码。将这个代码发给你的朋友，他将获得一个和你一样的流程图，一键复制。test、prod跨环境复制也不再话下。
 </td>
 </tr>
 </table>
