@@ -193,6 +193,7 @@ Karma提供了全局变量的能力，可以声明一个全局变量如date1，�
 ### 不止于树
 Karma并非树状结构，可以执行多个独立的节点，就像我们习惯用脑图表达自己的想法，总是想到哪就画到哪。
 
+
 <div align=center>
   <img width="800" src="src/main/resources/static/img/step14.png" />
 </div>
