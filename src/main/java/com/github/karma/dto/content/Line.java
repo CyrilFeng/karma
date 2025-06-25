@@ -16,4 +16,6 @@ public class Line {
     private String to;
 
     private List<String> anchor;
+
+    private Integer virtual;
 }
